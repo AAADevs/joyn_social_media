@@ -23,7 +23,6 @@ class _PostState extends State<Post> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget._postBrain.type);
     Size size = MediaQuery.of(context).size;
     final double iconWidth = size.width * 0.07, iconHeight = size.height * 0.07;
 

@@ -21,6 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
     fetchLogic.getPosts().then((value) {
       setState(() {
         list = value;
+        list.forEach((element) {
+          print(element.type);
+        });
         _refreshController.refreshCompleted();
       });
     });
@@ -33,7 +36,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: kScaffoldBG,
       drawer: Drawer(
-        child: CustomDrawer(),
+        child: WillPopScope(
+          child: CustomDrawer(),
+          onWillPop: () {
+            setState(() {});
+            return Future.value(true);
+          },
+        ),
       ),
       body: SafeArea(
         child: Column(
@@ -58,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Image.asset(
                         "assets/joyn_berry.png",
-                        height: size.height * 0.04,
+                        height: size.height * 0.05,
                       ),
                       Image.asset(
                         "assets/token.png",
@@ -106,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         int flag = 0;
                         if (kSelectedType == "All") flag = 1;
                         if (list[index].type == kSelectedType) flag = 1;
-                        return flag == 1 ? Post(list[index]) : null;
+                        return flag == 1 ? Post(list[index]) : Container();
                       }),
                 ),
               ),

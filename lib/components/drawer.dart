@@ -69,7 +69,7 @@ class CustomDrawer extends StatelessWidget {
                 asset: "assets/check-mark.png",
                 onPressed: () {
                   kSelectedType = "All";
-                  Navigator.pop(context);
+                  Navigator.of(context).maybePop();
                 },
               ),
               DrawerListItem(
@@ -77,7 +77,7 @@ class CustomDrawer extends StatelessWidget {
                 asset: "assets/video.png",
                 onPressed: () {
                   kSelectedType = "Video";
-                  Navigator.pop(context);
+                  Navigator.of(context).maybePop();
                 },
               ),
               DrawerListItem(
@@ -85,7 +85,7 @@ class CustomDrawer extends StatelessWidget {
                 asset: "assets/image.png",
                 onPressed: () {
                   kSelectedType = "Image";
-                  Navigator.pop(context);
+                  Navigator.of(context).maybePop();
                 },
               ),
               DrawerListItem(
@@ -93,7 +93,7 @@ class CustomDrawer extends StatelessWidget {
                 asset: "assets/text.png",
                 onPressed: () {
                   kSelectedType = "Text";
-                  Navigator.pop(context);
+                  Navigator.of(context).maybePop();
                 },
               ),
               SizedBox(
